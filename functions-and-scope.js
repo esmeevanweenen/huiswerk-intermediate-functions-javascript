@@ -67,6 +67,17 @@ console.log(firstList, secondList, thirdList);
 
 // ---- Verwachte uitkomst: 6.642857142857143
 
+// Een gemiddelde bereken je door alle losse waarden met elkaar te vermenigvuldigen en de uitkomst te delen door het aantal waarden
+// Je moet iedere waarde in de array verzamelen om uiteindelijk een gemiddelde te kunnen berekenen (dit sla je op in een variabele)
+// Je moet in de for loop length gebruiken om alle waardes langs te kunnen lopen
+
+let gradesTotal = 0;
+
+for (let i = 0; i < grades.length; i++) {
+  gradesTotal = gradesTotal + grades[i];
+}
+
+console.log(gradesTotal / grades.length);
 
 /* 2b: Omschrijven tot een herbruikbare functie */
 // Schrijf een functie genaamd averageGrade, die een array van cijfers verwacht (zoals grades) en het gemiddelde cijfer teruggeeft. Gebruik hiervoor jouw antwoord van 2a.
@@ -78,6 +89,21 @@ console.log(firstList, secondList, thirdList);
 // averageGrade([6, 4, 5]) geeft xxxx
 // averageGrade([8, 9, 4, 6, 10]) geeft xxxx
 
+function averageGrade(listOfGrades) {
+    let total = 0;
+
+    for (let i = 0; i < listOfGrades.length; i++) {
+        total = total + listOfGrades[i];
+    }
+
+    return total / listOfGrades.length;
+}
+
+const firstGradesArray = averageGrade(grades);
+const secondGradesArray = averageGrade([6, 4, 5]);
+const thirdGradesArray = averageGrade([8, 9, 4, 6, 10]);
+
+console.log(firstGradesArray.toFixed(2), secondGradesArray.toFixed(2), thirdGradesArray.toFixed(2));
 
 /* 2c: Afronden op twee decimalen */
 // Zorg ervoor dat het gemiddelde cijfer dat wordt teruggegeven uit de functie netjes wordt afgerond op twee decimalen.
