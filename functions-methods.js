@@ -9,7 +9,18 @@
 // getEmailDomain("t.mellink@novi.nl") geeft novi.nl
 // getEmailDomain("a.wiersma@outlook.com") geeft outlook.com
 
+function getEmailDomain(emailAddress) {
+    const beginEmailDomain = emailAddress.indexOf("@");
+    const domainName = emailAddress.substring(beginEmailDomain + 1);
 
+    return domainName;
+}
+
+const firstDomainName = getEmailDomain("n.eeken@novi-education.nl");
+const secondDomainName = getEmailDomain("t.mellink@novi.nl");
+const thirdDomainName = getEmailDomain("a.wiersma@outlook.com");
+
+console.log(firstDomainName, secondDomainName, thirdDomainName);
 
 
 /* Opdracht  2 */
@@ -20,7 +31,24 @@
 // typeOfEmail("novi.nlaapjesk@outlook.com") geeft geeft "Extern" <-- deze moet het ook doen!
 // typeOfEmail("a.wiersma@outlook.com") geeft "Extern"
 
+function typeOfEmail (emailAddress) {
+    const beginEmailDomain = emailAddress.indexOf("@");
+    const domainName = emailAddress.substring(beginEmailDomain + 1);
 
+    console.log (domainName);
+
+    if (domainName === "novi-education.nl") {
+        console.log("Student");
+    } else if (domainName === "novi.nl") {
+        console.log("Medewerker");
+    } else {
+        console.log("Extern");
+    }
+}
+
+const firstEmailType = typeOfEmail ("n.eeken@novi-education.nl");
+const secondEmailType = typeOfEmail ("t.mellink@novi.nl");
+const thirdEmailType = typeOfEmail ("novi.nlaapjesk@outlook.com");
 
 /* Opdracht  3 */
 // Schrijf een functie genaamd checkEmailValidity, die een emailadres verwacht en checkt of het emailadres valide is. De functie returned true of false, afhankelijk van de uitkomst.
@@ -34,3 +62,24 @@
 // checkEmailValidity("n.eekenanovi.nl") geeft false - want geen @
 // checkEmailValidity("n.eeken@novinl.") geeft false - want de punt mag niet als laatst
 // checkEmailValidity("tessmellink@novi,nl") geeft false - want er staat een komma in
+
+function checkEmailValidity (emailAddress) {
+    const hasApenstaartje = emailAddress.includes("@");
+    const hasComma = emailAddress.includes(",");
+
+    const indexOfLastDot = emailAddress.lastIndexOf(".");
+    const containsNoDotAtEnd = indexOfLastDot !== emailAddress.length - 1;
+
+    if (hasApenstaartje && !hasComma && containsNoDotAtEnd) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+const firstEmailValidityCheck = checkEmailValidity ("n.eeken@novi.nl");
+const secondEmailValidityCheck = checkEmailValidity ("tessmellink@novi.nl");
+const thirdEmailValidityCheck = checkEmailValidity ("n.eekenanovi.nl");
+const fourthEmailValidityCheck = checkEmailValidity ("tessmellink@novi,nl");
+
+console.log(firstEmailValidityCheck, secondEmailValidityCheck, thirdEmailValidityCheck, fourthEmailValidityCheck);
