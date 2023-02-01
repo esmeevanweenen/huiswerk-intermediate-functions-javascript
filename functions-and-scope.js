@@ -110,8 +110,6 @@ console.log(firstGradesArray.toFixed(2), secondGradesArray.toFixed(2), thirdGrad
 // Tip: Google is your best friend!
 
 
-
-
 /* Bonusopdracht: hoogste cijfer */
 
 /* 3a: Script schrijven  */
@@ -123,6 +121,16 @@ console.log(firstGradesArray.toFixed(2), secondGradesArray.toFixed(2), thirdGrad
 
 // ---- Verwachte uitkomst: 9
 
+let highest = 0;
+
+for (let i = 0; i < grades.length; i++) {
+    if (grades[i] > highest) {
+        highest = grades[i];
+    }
+}
+
+console.log(highest);
+
 
 /* 3b: Omschrijven tot een herbruikbare functie */
 // Schrijf een functie genaamd highestGrade, die een array van cijfers verwacht (zoals grades) en het hoogste cijfer teruggeeft. Gebruik hiervoor jouw antwoord van 3a.
@@ -133,3 +141,21 @@ console.log(firstGradesArray.toFixed(2), secondGradesArray.toFixed(2), thirdGrad
 // highestGrade(grades) geeft 9
 // highestGrade([6, 4, 5]) geeft 6
 // highestGrade([8, 9, 4, 6, 10]) geeft 10
+
+function highestGrade(arrayWithNumbers) {
+    let highest = 0;
+
+    for (let i = 0; i < arrayWithNumbers.length; i++) {
+        if (arrayWithNumbers[i] > highest) {
+            highest = arrayWithNumbers[i];
+        }
+    }
+
+        return highest;
+    }
+
+const firstArrayWithNumbers = highestGrade(grades);
+const secondArrayWithNumbers = highestGrade([6, 4, 5]);
+const thirdArrayWithNumbers = highestGrade([8, 9, 4, 6, 10]);
+
+console.log(firstArrayWithNumbers, secondArrayWithNumbers, thirdArrayWithNumbers);
