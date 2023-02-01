@@ -31,7 +31,24 @@ console.log(firstDomainName, secondDomainName, thirdDomainName);
 // typeOfEmail("novi.nlaapjesk@outlook.com") geeft geeft "Extern" <-- deze moet het ook doen!
 // typeOfEmail("a.wiersma@outlook.com") geeft "Extern"
 
+function typeOfEmail (emailAddress) {
+    const beginEmailDomain = emailAddress.indexOf("@");
+    const domainName = emailAddress.substring(beginEmailDomain + 1);
 
+    console.log (domainName);
+
+    if (domainName === "novi-education.nl") {
+        console.log("Student");
+    } else if (domainName === "novi.nl") {
+        console.log("Medewerker");
+    } else {
+        console.log("Extern");
+    }
+}
+
+const firstEmailType = typeOfEmail ("n.eeken@novi-education.nl");
+const secondEmailType = typeOfEmail ("t.mellink@novi.nl");
+const thirdEmailType = typeOfEmail ("novi.nlaapjesk@outlook.com");
 
 /* Opdracht  3 */
 // Schrijf een functie genaamd checkEmailValidity, die een emailadres verwacht en checkt of het emailadres valide is. De functie returned true of false, afhankelijk van de uitkomst.
